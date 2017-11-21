@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+</head>
+<body>
+ <div>
+        <h2> Messages from server</h2><br><br>
+        <hr size="3" width="70%" />
+    </div>
+
+<br>
+
+
+        {% for every_message in all_messages %}
+            {{ every_user }}
+            <ul>
+                <a href="/index/{{ every_message }}"> <span>User :{{ every_message.user }}</span></a><br>
+            </ul>
+             <span>payload :{{ every_message.payload }}</span>
+             <span>Host :{{ every_message.host }}</span>
+             <span>Port :{{ every_message.port }}</span>
+        {% endfor %}
+
+
+</body>
+</html>
