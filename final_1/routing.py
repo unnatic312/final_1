@@ -6,5 +6,5 @@ from .consumer import on_mqtt_message
 #u1=str(channel_name.decode('utf-8', 'ignore'))
 channel_routing = [
 
-     route('mqtt.sub', on_mqtt_message),
+     route('alivio/v1/tx/#', on_mqtt_message),
 ]

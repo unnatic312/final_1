@@ -11,8 +11,10 @@ def welcome(request):
 
 
 def home(request):
-    all_user = users.objects.all()
+
     userqw = 'yes you,its not hard as you think'
+    all_user = users.objects.all()
+
     temp1 = loader.get_template('final_1\index.html')
     context = {'all_user': all_user, 'userqw': userqw}
 
@@ -20,7 +22,7 @@ def home(request):
 
 
 def messages(request):
-    all_messages = msg.objects.all()
+    all_messages = msg.objects.all()[-20]
 
     temp2 = loader.get_template('final_1\message.html')
     context = {'all_messages': all_messages}

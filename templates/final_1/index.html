@@ -1,3 +1,4 @@
+{% comment %}
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -16,33 +17,13 @@
         {% for every_user in all_user %}
 
 
-                <a href="/home/{{ every_user }}"> <span>UserId :  {{ every_user.userId }}</span></a><br>
+            <a href="/home/{{ every_user }}"> <span>UserId :  {{ every_user.userId }}</span></a><br>
 
 
-{##}
-{#            <form action="{% url 'final_1.on' %}" method="post">#}
-{#                {% csrf_token %}#}
-{#                <input type="button" id="mybtn{{ every_user.userId }}" name="state">#}
-{#                <label for="mybtn{{ every_user.userId }}">#}
-{#                    {{ every_user.state }}#}
-{#                    {% if state == True %}#}
-{#                        {{ every_user.state}}={{False }}#}
-{#                    {% endif %}#}
-{##}
-{#                </label><br>#}
-{#            </form>#}
-{##}
+
 
             <ul> <span>State :{{ every_user.state }}</span><br></ul>
             <ul>
-{#                <script>#}
-{#                    function myFunction() {#}
-{#                        if (document.getElementById("myBtn").value=='False')#}
-{#                            {document.getElementById("myBtn").value = "True";}#}
-{#                        else#}
-{#                        {document.getElementById("myBtn").value='False';}#}
-{#                    }#}
-{#                </script>#}
 
                 <button id="myBtn" onclick="myFunction()" value="{{ every_user.state }}">{{ every_user.state }}</button>
 
@@ -50,9 +31,113 @@
             </ul>
             <ul> <span>Current :{{ every_user.current }}</span><br></ul>
             <ul> <span>Voltage :{{ every_user.voltage }}</span><br></ul>
+
+
         {% endfor %}
 
 
+
+</body>
+</html>{% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="refresh" content="30"/>
+
+    <script language="javascript">
+        setTimeout(function(){
+           window.location.reload(1);
+        }, 3000);
+    </script>
+
+    <style type="text/css">
+
+    .user-display {
+    background-color:red;
+    display: inline-block;
+    height: auto;
+    width: 300px;
+    float: right;
+    margin: 40px;
+    top: 10px;
+    position: relative;
+    }
+
+.user-dislay-userId{
+    height: auto;
+    font-weight: bolder;
+    font-size: 25px;
+    text-align: center;
+}
+
+.user-display-parameter{
+    float: right;
+    position: inherit;
+    display: inline-block;
+    width: 30%;
+    margin: 10px 10px;
+    background-color: aliceblue;
+    font-weight: normal;
+    border: solid;
+    text-align: center;
+    font-family: "Microsoft Himalaya";
+    font-size: 30px;
+    }
+
+
+    </style>
+
+    <title>Users</title>
+</head>
+<body>
+    <div style="text-align: center">
+        <h2>  All users that are connected to our sytem till now </h2><br><br>
+        <hr size="3" width="70%" />
+    </div>
+{% for every_user in all_user %}
+
+
+    <div class="user-display">
+
+        {% if '{{every_user.state}}' %}
+            <style>
+            .user-display{
+                background-color:green ;
+            }
+            </style>
+        {% endif %}
+        <p class="user-dislay-userId">{{ every_user.userId }}</p><hr>
+       <div width="100%">
+            <div class="user-display-parameter">
+            <section> Power<br>
+            {{  every_user.power }}
+            </section>
+         </div>
+        <div class="user-display-parameter" style="float: left;">
+            <section> Unit<br>
+            {{ every_user.unit }}
+            </section>
+         </div>
+
+       </div>
+        <div >
+            <div class="user-display-parameter" >
+            <section> current<br>
+            {{ every_user.current  }}
+            </section>
+         </div>
+        <div class="user-display-parameter" style="float: left;">
+            <section> voltage<br>
+            {{ every_user.voltage  }}
+            </section>
+         </div>
+
+        </div>
+
+
+    </div>
+
+{% endfor %}
 
 </body>
 </html>
