@@ -1,7 +1,4 @@
-# final_1
-Hello friends, I am newbie in GitHub and This is my first resporatory in GitHub.
-I am testing my Django python webapp for mqtt-broker.
-
+Webapp is analyse the data from mqtt server and represent it.
 IoT 
 Django web framework---python backEnd
 
