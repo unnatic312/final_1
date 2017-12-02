@@ -1,4 +1,5 @@
-Webapp is analyse the data from mqtt server and represent it.
+Webapp is for collecting data from the mqtt server and represent it.
+
 IoT 
 Django web framework---python backEnd
 
