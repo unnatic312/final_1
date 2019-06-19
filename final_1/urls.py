@@ -25,9 +25,9 @@ django webpage autoreload settings for django-fresh
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.welcome, name='welcome'),
     url(r'^home/$', views.home, name='home'),
+    #url(r'^home/$', views.home, name='home'),
   #  url(r'^home/(?P<userId>[0-9]+)/$', views.state, name='state'),
-    url(r'^messages/$', views.messages, name='messages'),
+   # url(r'^messages/$', views.messages, name='messages'),
 
 ]
